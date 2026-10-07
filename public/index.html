@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fintech Pre-Deployment Compliance Checklist Generator</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Fintech Pre-Deployment Compliance Checklist Generator</h1>
+    <p class="subtitle">Describe your AI fraud/credit system and get a tailored risk checklist, plus a class-imbalance check on your sample data.</p>
+    <div class="mock-banner">Running with mock data — fully offline, rules-based engine, no credentials required.</div>
+  </header>
+
+  <main>
+    <section class="card" id="form-section">
+      <h2>1. Describe your AI system</h2>
+      <div class="field">
+        <label for="companyName">Company / project name (optional)</label>
+        <input type="text" id="companyName" placeholder="e.g. Demo Fintech Ltd" />
+      </div>
+      <div class="field">
+        <label for="useCase">Use case</label>
+        <select id="useCase"></select>
+      </div>
+      <div class="field">
+        <label for="region">Region</label>
+        <select id="region"></select>
+      </div>
+      <div class="field">
+        <label>Data types used (select all that apply)</label>
+        <div id="dataTypes" class="checkbox-grid"></div>
+      </div>
+      <button id="generateBtn">Generate Checklist</button>
+    </section>
+
+    <section class="card" id="result-section" hidden>
+      <h2>2. Your tailored checklist</h2>
+      <div class="narrative-box">
+        <span class="provider-badge" id="providerBadge"></span>
+        <p id="narrativeText"></p>
+      </div>
+      <div id="categoriesContainer"></div>
+    </section>
+
+    <section class="card" id="csv-section">
+      <h2>3. Class-imbalance check (CSV)</h2>
+      <p class="hint">Upload a sample training CSV. The tool auto-detects a label column (e.g. <code>is_fraud</code>, <code>label</code>, <code>target</code>, <code>class</code>, <code>default</code>) or falls back to the last column.</p>
+      <div class="field">
+        <label for="csvFile">CSV file</label>
+        <input type="file" id="csvFile" accept=".csv,text/csv" />
+      </div>
+      <div class="field">
+        <label for="labelColumn">Label column name (optional override)</label>
+        <input type="text" id="labelColumn" placeholder="e.g. is_fraud" />
+      </div>
+      <div class="field-row">
+        <button id="analyzeCsvBtn">Analyze CSV</button>
+        <button id="sampleCsvBtn" class="secondary">Use sample CSV</button>
+      </div>
+      <div id="csvResultBox" hidden></div>
+    </section>
+
+    <section class="card" id="history-section">
+      <h2>History</h2>
+      <ul id="historyList"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Agent-generated prototype — built by an automated daily-product agent; review before relying on it.</p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

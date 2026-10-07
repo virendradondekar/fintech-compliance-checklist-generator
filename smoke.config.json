@@ -1,0 +1,49 @@
+{
+  "start": [
+    "node",
+    "server.js"
+  ],
+  "routes": [
+    {
+      "path": "/health",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/meta",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/history",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/checklist",
+      "method": "POST",
+      "status": 200,
+      "body": {
+        "companyName": "Demo Fintech",
+        "useCase": "fraud_detection",
+        "dataTypes": [
+          "transactional"
+        ],
+        "region": "india"
+      }
+    },
+    {
+      "path": "/api/csv-check",
+      "method": "POST",
+      "status": 200,
+      "body": {
+        "csvText": "amount,is_fraud\n10,0\n20,0\n30,1\n"
+      }
+    }
+  ]
+}

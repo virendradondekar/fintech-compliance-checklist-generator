@@ -1,0 +1,16 @@
+{
+  "name": "fintech-compliance-checklist",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Fintech pre-deployment compliance checklist generator with class-imbalance CSV check",
+  "dependencies": {},
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "lint": "node scripts/lint.js",
+    "test": "node scripts/smoke.js"
+  }
+}
